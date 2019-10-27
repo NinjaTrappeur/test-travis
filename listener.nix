@@ -1,4 +1,3 @@
-{ }:
 let
   nixpkgs = builtins.fetchGit {
     url = "https://github.com/NixOS/nixpkgs.git";
@@ -10,5 +9,5 @@ let
     ${pkgs.nix}/bin/nix-store --import
   '';
 in  pkgs. "listener.sh" ''
-  ${pkgs.socat}/bin/socat - TCP:alternativebit.fr:6666 EXEC:${buildAgent} 
+  ${pkgs.socat}/bin/socat - TCP-LISTEN:alternativebit.fr:6666 EXEC:${buildAgent} 
  ''
